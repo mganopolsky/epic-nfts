@@ -23,7 +23,7 @@ template" button at the top of the page.
 Before running any command, make sure to install dependencies:
 
 ```sh
-$ yarn install
+yarn install
 ```
 
 ### Compile
@@ -31,7 +31,7 @@ $ yarn install
 Compile the smart contracts with Hardhat:
 
 ```sh
-$ yarn compile
+yarn compile
 ```
 
 ### Test
@@ -39,7 +39,7 @@ $ yarn compile
 Run the Mocha tests:
 
 ```sh
-$ yarn test
+yarn test
 ```
 
 ### Deploy contract to netowrk (requires Mnemonic and infura API key)
@@ -54,16 +54,29 @@ npx hardhat run --network rinkeby ./scripts/deploy.ts
 npx hardhat verify --network <network> <DEPLOYED_CONTRACT_ADDRESS> "Constructor argument 1"
 ```
 
+### NFT Images stores on IPFS with JSON metadata files
+
+The Metadata for NFTS for this project is stored in the following JSONKeeper Files:
+<https://jsonkeeper.com/b/NUIJ>
+<https://jsonkeeper.com/b/8CQI>
+<https://jsonkeeper.com/b/FG5W>
+<https://jsonkeeper.com/b/Z28K>
+<https://jsonkeeper.com/b/NUCS>
+<https://jsonkeeper.com/b/E5LH>
+<https://jsonkeeper.com/b/4RFY>
+<https://jsonkeeper.com/b/SI9O>
+<https://jsonkeeper.com/b/Q0S0>
+<https://jsonkeeper.com/b/AD8T>
+<https://jsonkeeper.com/b/PCGI>
+<https://jsonkeeper.com/b/UTV4>
+<https://jsonkeeper.com/b/YEVH>
+<https://jsonkeeper.com/b/3HJ5>
+<https://jsonkeeper.com/b/XG87>
+
 ### Added plugins
 
 - Gas reporter [hardhat-gas-reporter](https://hardhat.org/plugins/hardhat-gas-reporter.html)
 - Etherscan [hardhat-etherscan](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html)
-
-## Thanks
-
-If you like it than you shoulda put a start ⭐ on it
-
-Twitter: [@amanusk\_][https://twitter.com/amanusk_]
 
 ## License
 

@@ -4,7 +4,10 @@ node_modules
 cache
 artifacts
 factories
+
 typechain
+coverage
+coverage.json
 
 yarn.lock
 

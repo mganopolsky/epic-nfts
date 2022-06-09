@@ -11,12 +11,24 @@ async function main(): Promise<void> {
   // to make sure everything is compiled
   // await run("compile");
   // We get the contract to deploy
-  const TestTokenFactory: ContractFactory = await ethers.getContractFactory(
-    'TestToken',
+  const MarinasFirstNFTFactory: ContractFactory = await ethers.getContractFactory(
+    'MarinasFirstNFT',
   );
-  const testToken: Contract = await TestTokenFactory.deploy();
-  await testToken.deployed();
-  console.log('TestToken deployed to: ', testToken.address);
+  const myNFT: Contract = await MarinasFirstNFTFactory.deploy();
+  await myNFT.deployed();
+  console.log("Marina's NFT deployed to: ", myNFT.address);
+
+  // get the max supply and mint all
+  const count = await myNFT.maxTotalSupply();
+
+  for (let i=0; i<count; i++) {
+    console.log("About to mint NFT #" + i.toString());
+    //create the NFT
+    let txn = await myNFT.makeCodeArtNFT();
+    //wait for it to be minted
+    await txn.wait();  
+    console.log("Minted complete of NFT #" + i.toString() );
+  }
 }
 
 // We recommend this pattern to be able to use async/await everywhere

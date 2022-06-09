@@ -28,6 +28,7 @@ const MNEMONIC = process.env.MNEMONIC || "";
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
 const INFURA_API_KEY = process.env.INFURA_API_KEY || "";
 const ALCHEMY_KEY = process.env.ALCHEMY_KEY || "";
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -40,14 +41,11 @@ task("accounts", "Prints the list of accounts", async (args, hre) => {
 });
 
 function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "https://" + network + ".infura.io/v3/" + INFURA_API_KEY;
+  //const url: string = "https://" + network + ".infura.io/v3/" + INFURA_API_KEY;
+  const url: string =  "https://eth-" + network + ".alchemyapi.io/v2/" + ALCHEMY_KEY;
+  console.log("URL is : %s", url);
   return {
-    accounts: {
-      count: 10,
-      initialIndex: 0,
-      mnemonic: MNEMONIC,
-      path: "m/44'/60'/0'/0",
-    },
+    accounts: [PRIVATE_KEY],
     chainId: chainIds[network],
     url,
   };
@@ -74,7 +72,7 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: "0.8.6",
+        version: "0.8.4",
       },
     ],
   },
